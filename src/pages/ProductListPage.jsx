@@ -1,5 +1,19 @@
-import React from 'react';
+import { Loading, List, Error } from '../components';
+import { useFetch } from '../hooks/useFetch';
 
 export const ProductListPage = () => {
-  return <div>ProductListPage</div>;
+  const { data, isLoading, isError } = useFetch();
+  return (
+    <div>
+      {isLoading ? (
+        <Loading />
+      ) : isError ? (
+        <Error />
+      ) : (
+        <div className='container-fluid'>
+          <List phonesData={data} />
+        </div>
+      )}
+    </div>
+  );
 };
