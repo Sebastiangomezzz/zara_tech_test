@@ -1,20 +1,21 @@
-import { ListItemCard } from './ListItemCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import { Column } from './Column';
 
-export const List = ({ phonesData }) => {
+export const List = ({ phonesData, breakPoint }) => {
   return (
-    <div className='row'>
-      {phonesData.map((phone) => {
-        return (
-          <ListItemCard
-            id={phone.id}
-            key={phone.id}
-            imageUrl={phone.imgUrl}
-            brand={phone.brand}
-            model={phone.model}
-            price={phone.price}
-          />
-        );
-      })}
-    </div>
+    <Container className='d-flex justify-content'>
+      <Row>
+        {phonesData.map((phone) => {
+          return (
+            <Column
+              key={phone.id}
+              phone={phone}
+              breakPoint={breakPoint}
+            />
+          );
+        })}
+      </Row>
+    </Container>
   );
 };

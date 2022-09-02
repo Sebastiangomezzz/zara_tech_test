@@ -1,26 +1,23 @@
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+
 export const ListItemCard = ({ id, imageUrl, brand, model, price }) => {
   return (
-    <div
-      className='card'
+    <Card
       style={{
-        width: '15rem',
+        width: '12rem',
         height: 'auto',
         padding: '0.5rem',
         margin: '0.5rem'
       }}>
       <Link to={`${id}`}>
-        <img
-          style={{ borderRadius: '0.5rem' }}
-          src={imageUrl}
-          alt={model}
-        />
-        <div className='card-body'>
-          <h6 className='card-title'>{brand}</h6>
-          <h4 className='card-text'>{model}</h4>
-          <p className='card-text'>{price} €</p>
-        </div>
+        <Card.Img src={imageUrl} />
+        <Card.Body>
+          <Card.Subtitle>{brand}</Card.Subtitle>
+          <Card.Title className='text-truncate'>{model}</Card.Title>
+          {price ? <Card.Text>{price} €</Card.Text> : <Card.Text>Price on request</Card.Text>}
+        </Card.Body>
       </Link>
-    </div>
+    </Card>
   );
 };
