@@ -8,8 +8,8 @@ import { GlobalLayout } from './layout/GlobalLayout';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalLayout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <GlobalLayout>
         <Routes>
           <Route
             path='/'
@@ -25,7 +25,7 @@ root.render(
             element={<ProductDetailPage />}
           />
         </Routes>
-      </BrowserRouter>
-    </GlobalLayout>
+      </GlobalLayout>
+    </BrowserRouter>
   </React.StrictMode>
 );

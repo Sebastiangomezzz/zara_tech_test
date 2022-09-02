@@ -1,7 +1,6 @@
-import { Loading, List, Error } from '../components';
 import Container from 'react-bootstrap/Container';
-import { useFetch } from '../hooks/useFetch';
-import { useWindowResize } from '../hooks/useWindowResize';
+import { Loading, List, Error } from '../components';
+import { useWindowResize, useFetch } from '../hooks';
 
 export const ProductListPage = () => {
   const { breakPoint } = useWindowResize();

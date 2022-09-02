@@ -1,12 +1,7 @@
-import { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import { ListItemCard } from './ListItemCard';
 
 export const Column = ({ breakPoint, phone }) => {
-  useEffect(() => {
-    console.log(breakPoint, 'break point');
-  }, [breakPoint]);
-
   if (breakPoint === 'xxl') {
     return (
       <Col
