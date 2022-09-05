@@ -4,3 +4,7 @@ export * from './Loading';
 export * from './Error';
 export * from './Image';
 export * from './Column';
+export * from './Actions';
+export * from './Description';
+export * from './NavbarWithCart';
+export * from './Breadcrumbs';

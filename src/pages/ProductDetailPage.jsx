@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Image, Loading, Error } from '../components';
-import { Actions } from '../components/Actions';
-import { Description } from '../components/Description';
+import { Image, Loading, Error, Actions, Description } from '../components';
 import { useFetchOne } from '../hooks';
 
 export const ProductDetailPage = () => {
@@ -16,9 +15,6 @@ export const ProductDetailPage = () => {
       fetchProduct(productId);
     }
   }, [productId]);
-  useEffect(() => {
-    console.log(product);
-  }, [product]);
 
   return (
     <>
@@ -28,12 +24,12 @@ export const ProductDetailPage = () => {
         <Error />
       ) : product ? (
         <Container>
-          <Container classname='d-flex justify-content-end'>
-            <button
-              className='btn btn-primary dashed mt-2'
+          <Container className='d-flex justify-content-end pe-4'>
+            <Button
+              variant='secondary'
               onClick={() => navigate(-1)}>
               Back to List of devices
-            </button>
+            </Button>
           </Container>
           <Container className='d-flex'>
             <Container
