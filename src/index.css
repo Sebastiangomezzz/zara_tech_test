@@ -1,5 +1,5 @@
 body {
-  margin: 20px;
+  background-color: rgb(244, 240, 235);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,9 +14,9 @@ code {
 
 a {
   text-decoration: none;
-  color: #4c4c4c;
+  color: #898686;
 }
 
 a:hover {
-  color: black;
+  color: rgb(99, 97, 97);
 }

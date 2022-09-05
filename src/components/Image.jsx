@@ -1,7 +1,7 @@
 export const Image = ({ imageUrl, model }) => {
   return (
     <img
-      style={{ width: '15rem', height: 'auto' }}
+      style={{ width: '18rem', height: 'auto', borderRadius: '0.5rem' }}
       src={imageUrl}
       alt={model}
     />
