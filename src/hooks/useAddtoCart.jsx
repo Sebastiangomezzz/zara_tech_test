@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BASE_URL } from '../constants';
+import lscache from 'lscache';
 
 export const useAddtoCart = ({ id, colors, memoryOptions }) => {
   const [formState, setFormState] = useState({
@@ -9,7 +10,6 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
   });
   const handleChange = ({ target }) => {
     const { value, name } = target;
-    console.log(name, value);
     setFormState({ ...formState, [name]: value });
   };
   const handleSubmit = async (e) => {
@@ -22,7 +22,14 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
       body: JSON.stringify(formState)
     });
     const numberOfItemsInCart = await response.json();
-    console.log(numberOfItemsInCart);
+    if (lscache.get('numberOfItemsInCart') === null) {
+      console.log('No numberOfItemsInCart response', typeof numberOfItemsInCart.count);
+      lscache.set('numberOfItemsInCart', numberOfItemsInCart.count, 60);
+    } else {
+      console.log('NumberOfItemsInCart response: ' + lscache.get('numberOfItemsInCart'));
+      const itemsInCart = lscache.get('numberOfItemsInCart') + 1;
+      lscache.set('numberOfItemsInCart', itemsInCart, 60);
+    }
   };
   return { handleChange, handleSubmit };
 };
