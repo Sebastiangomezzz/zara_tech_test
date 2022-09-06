@@ -13,7 +13,14 @@ export const productsApiSlice = createApi({
     }),
     getProduct: builder.query({
       query: (id) => `/product/${id}`
+    }),
+    addProduct: builder.mutation({
+      query: (product) => ({
+        url: '/cart',
+        method: 'POST',
+        body: { ...product }
+      })
     })
   })
 });
-export const { useGetProductsQuery, useGetProductQuery } = productsApiSlice;
+export const { useGetProductsQuery, useGetProductQuery, useAddProductMutation } = productsApiSlice;

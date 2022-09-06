@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { BASE_URL } from '../constants';
+import { useState, useEffect } from 'react';
+//import { BASE_URL } from '../constants';
+import { useAddProductMutation } from '../store/api/productsApi';
 
 export const useAddtoCart = ({ id, colors, memoryOptions }) => {
+  const [addProduct, result] = useAddProductMutation();
   const [formState, setFormState] = useState({
     id,
     colorCode: colors[0],
@@ -13,15 +15,10 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${BASE_URL}/cart`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formState)
-    });
-    const numberOfItemsInCart = await response.json();
-    console.log(numberOfItemsInCart);
+    await addProduct(formState);
   };
+  useEffect(() => {
+    console.log(result.data);
+  }, [result]);
   return { handleChange, handleSubmit };
 };
