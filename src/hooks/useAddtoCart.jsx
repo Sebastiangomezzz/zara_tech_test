@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BASE_URL } from '../constants';
-import lscache from 'lscache';
 
 export const useAddtoCart = ({ id, colors, memoryOptions }) => {
   const [formState, setFormState] = useState({
@@ -8,10 +7,6 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
     colorCode: colors[0],
     storageCode: memoryOptions[0]
   });
-  const [shouldUpdate, setShouldUpdate] = useState(false);
-  useEffect(() => {
-    setShouldUpdate(true);
-  }, [id]);
   const handleChange = ({ target }) => {
     const { value, name } = target;
     setFormState({ ...formState, [name]: value });
@@ -26,12 +21,7 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
       body: JSON.stringify(formState)
     });
     const numberOfItemsInCart = await response.json();
-    if (lscache.get('numberOfItemsInCart') === null) {
-      lscache.set('numberOfItemsInCart', numberOfItemsInCart.count, 60);
-    } else {
-      const itemsInCart = lscache.get('numberOfItemsInCart') + 1;
-      lscache.set('numberOfItemsInCart', itemsInCart, 60);
-    }
+    console.log(numberOfItemsInCart);
   };
-  return { handleChange, handleSubmit, shouldUpdate };
+  return { handleChange, handleSubmit };
 };

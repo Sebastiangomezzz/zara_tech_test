@@ -1,20 +1,13 @@
-import { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Image, Loading, Error, Actions, Description } from '../components';
-import { useFetchOne } from '../hooks';
+import { Image, Loading, Error, Description, Actions } from '../components';
+import { useGetProductQuery } from '../store/api/productsApi';
 
-export const ProductDetailPage = ({ forceRerender }) => {
-  console.log('ProductDetailPage renders!!');
+export const ProductDetailPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const { product, fetchProduct, isLoading, isError } = useFetchOne(productId);
-  useEffect(() => {
-    if (productId !== undefined) {
-      fetchProduct(productId);
-    }
-  }, [productId]);
+  const { data: product, isLoading, isError, isSuccess } = useGetProductQuery(productId);
 
   return (
     <>
@@ -22,7 +15,7 @@ export const ProductDetailPage = ({ forceRerender }) => {
         <Loading />
       ) : isError ? (
         <Error />
-      ) : product ? (
+      ) : isSuccess ? (
         <Container>
           <Container className='d-flex justify-content-end pe-4'>
             <Button
@@ -43,7 +36,6 @@ export const ProductDetailPage = ({ forceRerender }) => {
             <Container className='mt-4'>
               <Description product={product} />
               <Actions
-                forceRerender={forceRerender}
                 id={product.id}
                 colors={product.colors}
                 memoryOptions={product.internalMemory}

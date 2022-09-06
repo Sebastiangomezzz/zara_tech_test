@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
@@ -7,8 +6,6 @@ import { Breadcrumbs, ShoppingCart } from '../components';
 
 export const NavbarWithCart = () => {
   const location = useLocation();
-
-  const [itemsInCart, setItemsInCart] = useState();
 
   return (
     <Navbar
@@ -23,10 +20,7 @@ export const NavbarWithCart = () => {
         </Navbar.Brand>
         <Breadcrumbs location={location} />
       </Container>
-      <ShoppingCart
-        setItemsInCart={setItemsInCart}
-        itemsInCart={itemsInCart}
-      />
+      <ShoppingCart />
     </Navbar>
   );
 };

@@ -1,23 +1,26 @@
 import Container from 'react-bootstrap/Container';
 import { Loading, List, Error } from '../components';
-import { useWindowResize, useFetch } from '../hooks';
+import { useWindowResize } from '../hooks';
+import { useGetProductsQuery } from '../store/api/productsApi';
 
 export const ProductListPage = () => {
   const { breakPoint } = useWindowResize();
-  const { data, isLoading, isError } = useFetch();
+  const { data: products, isLoading, isError, isSuccess } = useGetProductsQuery();
   return (
     <>
       {isLoading ? (
         <Loading />
       ) : isError ? (
         <Error />
-      ) : (
+      ) : isSuccess ? (
         <Container>
           <List
-            phonesData={data}
+            phonesData={products}
             breakPoint={breakPoint}
           />
         </Container>
+      ) : (
+        <></>
       )}
     </>
   );
