@@ -5,11 +5,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Image, Loading, Error, Actions, Description } from '../components';
 import { useFetchOne } from '../hooks';
 
-export const ProductDetailPage = () => {
+export const ProductDetailPage = ({ forceRerender }) => {
+  console.log('ProductDetailPage renders!!');
   const { productId } = useParams();
   const navigate = useNavigate();
   const { product, fetchProduct, isLoading, isError } = useFetchOne(productId);
-
   useEffect(() => {
     if (productId !== undefined) {
       fetchProduct(productId);
@@ -43,6 +43,7 @@ export const ProductDetailPage = () => {
             <Container className='mt-4'>
               <Description product={product} />
               <Actions
+                forceRerender={forceRerender}
                 id={product.id}
                 colors={product.colors}
                 memoryOptions={product.internalMemory}

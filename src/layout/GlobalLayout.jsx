@@ -1,5 +1,4 @@
 import { NavbarWithCart } from '../components';
-
 export const GlobalLayout = ({ children }) => {
   return (
     <>

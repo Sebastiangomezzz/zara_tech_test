@@ -7,17 +7,11 @@ export const useFetchOne = ({ productId }) => {
   const [product, setProduct] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  useEffect(() => {
-    if (productId !== undefined) {
-      console.log(productId, product);
-    }
-  }, [productId, product]);
 
   const fetchProduct = async (productId) => {
     try {
       setIsLoading(true);
       if (lscache.get(productId) === null) {
-        console.log('null');
         const response = await fetch(`${BASE_URL}/product/${productId}`);
         const result = await response.json();
         setProduct(result);

@@ -1,8 +1,9 @@
 import { Card, Form, Button } from 'react-bootstrap';
 import { useAddtoCart } from '../hooks/useAddtoCart';
 
-export const Actions = ({ id, colors, memoryOptions }) => {
+export const Actions = ({ forceRerender, id, colors, memoryOptions }) => {
   const { handleChange, handleSubmit } = useAddtoCart({ id, colors, memoryOptions });
+  console.log('actions render!');
   return (
     <Card>
       <Form
@@ -25,7 +26,6 @@ export const Actions = ({ id, colors, memoryOptions }) => {
           })}
         </Form.Select>
         <Form.Label>Memory size</Form.Label>
-
         <Form.Select
           className='mb-4'
           name='storageCode'
@@ -42,7 +42,11 @@ export const Actions = ({ id, colors, memoryOptions }) => {
             );
           })}
         </Form.Select>
-        <Button type='submit'>Add to cart</Button>
+        <Button
+          type='submit'
+          onClick={forceRerender}>
+          Add to cart
+        </Button>
       </Form>
     </Card>
   );
