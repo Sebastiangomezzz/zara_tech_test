@@ -8,3 +8,4 @@ export * from './Actions';
 export * from './Description';
 export * from './NavbarWithCart';
 export * from './Breadcrumbs';
+export * from './ShoppingCart';

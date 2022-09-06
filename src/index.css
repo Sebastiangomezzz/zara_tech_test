@@ -20,3 +20,7 @@ a {
 a:hover {
   color: rgb(99, 97, 97);
 }
+
+.grayscale {
+  filter: invert(53%) sepia(6%) saturate(142%) hue-rotate(332deg) brightness(99%) contrast(98%);
+}
