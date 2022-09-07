@@ -1,4 +1,6 @@
-import { Card, Form, Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { useAddtoCart } from '../hooks/useAddtoCart';
 
 export const Actions = ({ id, colors, memoryOptions }) => {
