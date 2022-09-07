@@ -9,3 +9,4 @@ export * from './Description';
 export * from './NavbarWithCart';
 export * from './Breadcrumbs';
 export * from './ShoppingCart';
+export * from './SearchBar';
