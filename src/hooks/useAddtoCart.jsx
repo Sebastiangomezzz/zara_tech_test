@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-//import { BASE_URL } from '../constants';
 import { useAddProductMutation } from '../store/api/productsApi';
 
 export const useAddtoCart = ({ id, colors, memoryOptions }) => {
