@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useAddProductMutation } from '../store/api/productsApi';
+import { useDispatch } from 'react-redux';
+import { increment } from '../store/Slices/cartSlice';
 
 export const useAddtoCart = ({ id, colors, memoryOptions }) => {
+  const dispatch = useDispatch();
   const [addProduct, result] = useAddProductMutation();
   const [formState, setFormState] = useState({
     id,
@@ -17,7 +20,10 @@ export const useAddtoCart = ({ id, colors, memoryOptions }) => {
     await addProduct(formState);
   };
   useEffect(() => {
-    console.log(result.data);
+    if (result.isSuccess) {
+      dispatch(increment());
+    } else return;
   }, [result]);
+
   return { handleChange, handleSubmit };
 };

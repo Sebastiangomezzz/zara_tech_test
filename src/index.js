@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ProductListPage, ProductDetailPage } from './pages';
 import { GlobalLayout } from './layout/GlobalLayout';
-import { ApiProvider } from '@reduxjs/toolkit/query/react';
-import { productsApiSlice } from './store/api/productsApi';
+import { store } from './store/store';
+import { Provider } from 'react-redux';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ApiProvider api={productsApiSlice}>
+    <Provider store={store}>
       <BrowserRouter>
         <GlobalLayout>
           <Routes>
@@ -30,6 +30,6 @@ root.render(
           </Routes>
         </GlobalLayout>
       </BrowserRouter>
-    </ApiProvider>
+    </Provider>
   </React.StrictMode>
 );

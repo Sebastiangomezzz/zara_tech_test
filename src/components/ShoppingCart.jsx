@@ -1,15 +1,18 @@
-import cartIcon from '../icons/shopping-cart-of-checkered-design.png';
+import cartIcon from '../assets/icons/shopping-cart-of-checkered-design.png';
 import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
+import { useSelector } from 'react-redux';
 
 export const ShoppingCart = () => {
+  const itemsInCart = useSelector((storeState) => storeState.cart.value);
+
   return (
     <Container className='d-flex align-items-end flex-column'>
       <Badge
         pill
         bg='secondary'
         className='me-4'>
-        {/* {itemsInCart} */}
+        {itemsInCart}
       </Badge>
       <img
         alt='cart-icon'
