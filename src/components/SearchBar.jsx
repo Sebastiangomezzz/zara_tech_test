@@ -1,9 +1,7 @@
-/* eslint-disable */
 import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-//import { useGetProductsQuery } from '../store/api/productsApi';
 
 export const SearchBar = ({ products, setFilteredData }) => {
   const [valueToSearch, setValueToSearch] = useState();
@@ -19,7 +17,6 @@ export const SearchBar = ({ products, setFilteredData }) => {
   };
   useEffect(() => {
     if (valueToSearch && valueToSearch !== '') {
-      console.log(products);
       const filteredResults = products.filter(
         (product) =>
           product.model.toLowerCase().includes(valueToSearch.toLowerCase().trim()) ||
