@@ -12,7 +12,7 @@ export const ShoppingCart = () => {
         pill
         bg='secondary'
         className='me-4'>
-        {itemsInCart}
+        {itemsInCart > 0 && itemsInCart}
       </Badge>
       <img
         alt='cart-icon'

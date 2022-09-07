@@ -20,7 +20,7 @@ export const ProductListPage = () => {
             products={products}
             setFilteredData={setFilteredData}
           />
-          {filteredData.length === 0 ? (
+          {filteredData !== [] && filteredData.length === 0 ? (
             <h1>No results...</h1>
           ) : (
             <List

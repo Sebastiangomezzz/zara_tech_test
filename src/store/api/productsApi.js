@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '../../constants';
 
-export const productsApiSlice = createApi({
+export const productsApi = createApi({
   reducerPath: 'productsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL
@@ -23,4 +23,4 @@ export const productsApiSlice = createApi({
     })
   })
 });
-export const { useGetProductsQuery, useGetProductQuery, useAddProductMutation } = productsApiSlice;
+export const { useGetProductsQuery, useGetProductQuery, useAddProductMutation } = productsApi;

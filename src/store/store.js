@@ -1,12 +1,33 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { cartReducer } from './Slices/cartSlice';
-import { productsApiSlice } from './api/productsApi';
+import { productsApi } from './api/productsApi';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+// const expireReducer = require('redux-persist-expire');
+
+//   transforms: [
+//     expireReducer('root', {
+//       expireSeconds: 10
+//     })
+//   ],
+const persistConfig = {
+  key: 'root',
+  storage
+};
 
 const reducers = combineReducers({
   cart: cartReducer,
-  [productsApiSlice.reducerPath]: productsApiSlice.reducer
+  [productsApi.reducerPath]: productsApi.reducer
 });
 
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 export const store = configureStore({
-  reducer: reducers
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST']
+      }
+    }).concat(productsApi.middleware)
 });
