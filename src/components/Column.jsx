@@ -5,10 +5,12 @@ export const Column = ({ breakPoint, phone }) => {
   if (breakPoint === 'xxl') {
     return (
       <Col
+        data-testid='col'
         className='justify-content-center'
         key={phone.id}
         lg={3}>
         <ListItemCard
+          data-testid='list-item-card'
           id={phone.id}
           imageUrl={phone.imgUrl}
           brand={phone.brand}
@@ -20,6 +22,7 @@ export const Column = ({ breakPoint, phone }) => {
   } else if (breakPoint === 'xs') {
     return (
       <Col
+        data-testid='col'
         className='justify-content-center'
         key={phone.id}
         xs={12}>
