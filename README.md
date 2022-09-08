@@ -2,6 +2,26 @@
 
 This is a small SPA react app that I built to showcase my skill level with react and redux RTK to Zara devs team. It is a simple app that allows you to browse through a list of mobile phones and see their details. It also allows you to add a new phone to the list.
 
+## How to run the app
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+
+### `npm run lint`
+
+Runs the linter to check for errors in the code.
+
 ## The prerequisites for this project are:
 - Two views: a list of phones (ProductListPage) and a detail view of a phone (ProductsDetailPage).
 - The list of phones should be fetched from the API endpoint provided.
@@ -39,7 +59,7 @@ On the top of both views, there's a Navbar that has the branding of the page lin
 
 ### State management
 
-The state management is done using Redux RTK. The state is divided in two slices: products and cart. \The products slice is an API (productsApi) containing a set of two RTK-query queries (getProducts and getProduct) and a mutation (addProduct). This slice with keep the unused data for 1 hour directly managed from redux. \The cart slice has the number of items in the cart and a reducer to add the new element. The reason to have one separated slice for the cart is the need to have a reducer to add the previous number with the new one (always 1) due to the external API always returning as a response to the mutation an object like this one {count:1}, with no increment. Therefore, the state of the cart slice is persisted to local storage using redux-persist and redux-persist-expire to expire the state after a certain time (1 hour).
+The state management is done using Redux RTK. The state is divided in two slices: products and cart.  The products slice is an API (productsApi) containing a set of two RTK-query queries (getProducts and getProduct) and a mutation (addProduct). This slice with keep the unused data for 1 hour directly managed from redux.   The cart slice has the number of items in the cart and a reducer to add the new element. The reason to have one separated slice for the cart is the need to have a reducer to add the previous number with the new one (always 1) due to the external API always returning as a response to the mutation an object like this one {count:1}, with no increment. Therefore, the state of the cart slice is persisted to local storage using redux-persist and redux-persist-expire to expire the state after a certain time (1 hour).
 
 ### Data fetching
 
@@ -63,23 +83,5 @@ The testing is done using React Testing Library with Jest. The tests are done fo
 
 - Make the cart clickable and take the user to the cart view
 
-## How to run the app
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-
-### `npm run lint`
-
-Runs the linter to check for errors in the code.
 
