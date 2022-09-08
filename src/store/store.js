@@ -3,15 +3,17 @@ import { cartReducer } from './Slices/cartSlice';
 import { productsApi } from './api/productsApi';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// const expireReducer = require('redux-persist-expire');
+const expireReducer = require('redux-persist-expire');
 
-//   transforms: [
-//     expireReducer('root', {
-//       expireSeconds: 10
-//     })
-//   ],
 const persistConfig = {
   key: 'root',
+  transforms: [
+    expireReducer('cart', {
+      expireSeconds: 3600,
+      autoExpire: true,
+      expiredState: { value: 0 }
+    })
+  ],
   storage
 };
 
