@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useAddtoCart } from '../hooks/useAddtoCart';
 
-export const Actions = ({ id, colors, memoryOptions }) => {
+export const Actions = ({ toggleShowToast, id, colors, memoryOptions }) => {
   const { handleChange, handleSubmit } = useAddtoCart({ id, colors, memoryOptions });
   return (
     <Card>
@@ -43,7 +43,11 @@ export const Actions = ({ id, colors, memoryOptions }) => {
             );
           })}
         </Form.Select>
-        <Button type='submit'>Add to cart</Button>
+        <Button
+          type='submit'
+          onClick={toggleShowToast}>
+          Add to cart
+        </Button>
       </Form>
     </Card>
   );
