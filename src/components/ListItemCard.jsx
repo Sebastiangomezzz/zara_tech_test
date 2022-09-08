@@ -11,7 +11,10 @@ export const ListItemCard = ({ id, imageUrl, brand, model, price }) => {
         margin: '0.5rem'
       }}>
       <Link to={`${id}`}>
-        <Card.Img src={imageUrl} alt={ model } />
+        <Card.Img
+          src={imageUrl}
+          alt={model}
+        />
         <Card.Body>
           <Card.Subtitle>{brand}</Card.Subtitle>
           <Card.Title className='text-truncate'>{model}</Card.Title>

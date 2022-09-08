@@ -19,7 +19,7 @@ describe('ListItemCardTest', () => {
       />,
       { wrapper: MemoryRouter }
     );
-  })
+  });
   test('should render the image with the supplied imgUrl and alt values', () => {
     const { alt, src } = screen.getByRole('img');
     expect(alt).toBe(model);
@@ -27,6 +27,6 @@ describe('ListItemCardTest', () => {
   });
   test('should render the brand and model of the product', () => {
     //expect(screen.getByText(brand)).toBeTruthy();
-    screen.debug()
-  })
+    screen.debug();
+  });
 });
