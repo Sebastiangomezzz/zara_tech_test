@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# App created as a test for the role of frontend developer at Zara (Inditex) through AtSistemas.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
