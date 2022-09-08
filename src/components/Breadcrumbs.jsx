@@ -5,6 +5,7 @@ export const Breadcrumbs = ({ location }) => {
   return (
     <Breadcrumb>
       <Breadcrumb.Item
+        data-testid='breadcrumb'
         linkAs={Link}
         linkProps={{ to: '/' }}>
         Home
