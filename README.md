@@ -33,19 +33,37 @@ This page displays the details of a phone and a bigger pic of it. It has two sel
 
 ### Common elements for both views
 
-On the top of both views, there's a Navbar that has the Branding of the page linking to ProductsDetailPage, a breadcrumb that shows the current view and a cart icon that shows the number of items in the cart. The cart icon has a tooltip for visualization of the number of items in cart. In a future release could be a modal with the items in the cart.
+On the top of both views, there's a Navbar that has the branding of the page linking to ProductsDetailPage, a breadcrumb that shows the current view and a cart icon that shows the number of items in the cart. The cart icon has a tooltip for visualization of the number of items in cart. In a future release could be a modal with the items in the cart.
 
 ## Implementation details
 
 ### State management
 
-The state management is done using Redux RTK. The state is divided in two slices: products and cart. 
-\The products slice is an API (productsApi) containing a set of two RTK-query queries (getProducts and getProduct) and a mutation (addProduct). This slice with keep the unused data for 1 hour directly managed from redux. 
-\The cart slice has the number of items in the cart and a reducer to add the new element. The reason to have one separated slice for the cart is the need to have a reducer to add due to the external API always returning as a response to the mutation an object like this one {count:1}. Therefore, the cart slice is persisted to local storage using redux-persist and redux-persist-expire to expire the state after a certain time (1 hour).
+The state management is done using Redux RTK. The state is divided in two slices: products and cart. \The products slice is an API (productsApi) containing a set of two RTK-query queries (getProducts and getProduct) and a mutation (addProduct). This slice with keep the unused data for 1 hour directly managed from redux. \The cart slice has the number of items in the cart and a reducer to add the new element. The reason to have one separated slice for the cart is the need to have a reducer to add the previous number with the new one (always 1) due to the external API always returning as a response to the mutation an object like this one {count:1}, with no increment. Therefore, the state of the cart slice is persisted to local storage using redux-persist and redux-persist-expire to expire the state after a certain time (1 hour).
 
-## Available Scripts
+### Data fetching
 
-In the project directory, you can run:
+The data fetching is done using RTK Query. The API is defined in the products slice and the queries are used in the ProductListPage and ProductDetailPage components. The queries are cached for 1 hour to avoid unnecessary API calls.
+
+### Styling
+
+The styling is done using React Bootstrap. The components are styled using the Bootstrap components and the little custom CSS modifications are done in the index.css file or inline in the components.
+
+### Testing
+
+The testing is done using React Testing Library with Jest. The tests are done for some of the components. The tests are run using the command `npm run test`.
+
+## Future improvements
+
+- Add more tests
+
+- Add a modal with the items in the cart
+
+- Add a cart view where the user can see the items in the cart and remove them individually or clear whole cart
+
+- Make the cart clickable and take the user to the cart view
+
+## How to run the app
 
 ### `npm start`
 
@@ -64,3 +82,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
