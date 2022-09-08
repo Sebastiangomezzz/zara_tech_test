@@ -1,5 +1,11 @@
-import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 
 export const Loading = () => {
-  return <h1>Loading...</h1>;
+  return (
+    <Spinner
+      className='position-fixed top-50 end-50'
+      animation='border'
+      variant='success'
+    />
+  );
 };
