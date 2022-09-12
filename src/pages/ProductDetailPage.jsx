@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -14,6 +14,9 @@ export const ProductDetailPage = () => {
   const toggleShowToast = () => {
     setShowToast(() => !showToast);
   };
+  const back = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
 
   return (
     <>
@@ -26,7 +29,7 @@ export const ProductDetailPage = () => {
           <Container className='d-flex justify-content-end pe-4'>
             <Button
               variant='secondary'
-              onClick={() => navigate(-1)}>
+              onClick={() => back()}>
               Back to List of devices
             </Button>
           </Container>
