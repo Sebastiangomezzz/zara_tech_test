@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { Breadcrumbs } from '../../components';
+import { Breadcrumbs } from '../../../components';
 
 describe('Breadcrumbs tests', () => {
   test('Should render a Breadcrumb component', () => {

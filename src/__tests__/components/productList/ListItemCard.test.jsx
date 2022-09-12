@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ListItemCard } from '../../components';
+import { ListItemCard } from '../../../components';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('ListItemCard tests', () => {

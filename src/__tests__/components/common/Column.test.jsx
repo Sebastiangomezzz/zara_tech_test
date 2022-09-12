@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Column } from '../../components';
+import { Column } from '../../../components';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Column tests', () => {

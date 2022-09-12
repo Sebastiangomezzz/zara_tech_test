@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { List, Column } from '../../components';
 import { MemoryRouter } from 'react-router-dom';
+import { List } from '../../../components';
 
 describe('Column tests', () => {
   test('Should render a list of columns', () => {
