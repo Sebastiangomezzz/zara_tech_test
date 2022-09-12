@@ -8,7 +8,6 @@ export const getWindowSize = () => {
 export const useWindowResize = () => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [breakPoint, setBreakPoint] = useState('');
-  
 
   useEffect(() => {
     function handleWindowResize() {
@@ -26,23 +25,17 @@ export const useWindowResize = () => {
     const { innerWidth } = windowSize;
     if (innerWidth < 576) {
       setBreakPoint('xs');
-    }
-    if (innerWidth >= 576 && innerWidth < 768) {
+    } else if (innerWidth >= 576 && innerWidth < 768) {
       setBreakPoint('sm');
-    }
-    if (innerWidth >= 768 && innerWidth < 992) {
+    } else if (innerWidth >= 768 && innerWidth < 992) {
       setBreakPoint('md');
-    }
-    if (innerWidth >= 992 && innerWidth < 1200) {
+    } else if (innerWidth >= 992 && innerWidth < 1200) {
       setBreakPoint('lg');
-    }
-    if (innerWidth >= 1200 && innerWidth < 1400) {
+    } else if (innerWidth >= 1200 && innerWidth < 1400) {
       setBreakPoint('xl');
-    }
-    if (innerWidth >= 1400) {
+    } else {
       setBreakPoint('xxl');
     }
   }, [windowSize.innerWidth]);
   return { breakPoint };
 };
-
