@@ -17,7 +17,7 @@ const persistConfig = {
   storage
 };
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
   cart: cartReducer,
   [productsApi.reducerPath]: productsApi.reducer
 });

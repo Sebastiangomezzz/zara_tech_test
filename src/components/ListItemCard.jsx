@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 export const ListItemCard = ({ id, imageUrl, brand, model, price }) => {
   return (
     <Card
+      data-testid='list-item-card'
       style={{
         width: '12rem',
         height: 'auto',
