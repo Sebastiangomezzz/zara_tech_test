@@ -1,4 +1,4 @@
-import cartIcon from '../assets/icons/shopping-cart-of-checkered-design.png';
+import cartIcon from '../../assets/icons/shopping-cart-of-checkered-design.png';
 import Badge from 'react-bootstrap/Badge';
 import Container from 'react-bootstrap/Container';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';

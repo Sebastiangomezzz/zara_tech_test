@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { Breadcrumbs, ShoppingCart } from '../components';
+import { Breadcrumbs, ShoppingCart } from '..';
 
 export const NavbarWithCart = () => {
   const location = useLocation();

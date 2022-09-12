@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useAddtoCart } from '../../hooks/useAddtoCart';
+import { useAddtoCart } from '../../hooks/useAddToCart';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { reducers } from '../../store/store';

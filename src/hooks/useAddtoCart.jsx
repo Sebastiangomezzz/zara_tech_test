@@ -3,7 +3,7 @@ import { useAddProductMutation } from '../store/api/productsApi';
 import { useDispatch } from 'react-redux';
 import { increment } from '../store/Slices/cartSlice';
 
-export const useAddtoCart = ({ id, colors, memoryOptions }) => {
+export const useAddToCart = ({ id, colors, memoryOptions }) => {
   const dispatch = useDispatch();
   const [addProduct, result] = useAddProductMutation();
   const [formState, setFormState] = useState({

@@ -1,10 +1,10 @@
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useAddtoCart } from '../hooks/useAddtoCart';
+import { useAddToCart } from '../../hooks/useAddToCart';
 
 export const Actions = ({ toggleShowToast, id, colors, memoryOptions }) => {
-  const { handleChange, handleSubmit } = useAddtoCart({ id, colors, memoryOptions });
+  const { handleChange, handleSubmit } = useAddToCart({ id, colors, memoryOptions });
   return (
     <Card>
       <Form
